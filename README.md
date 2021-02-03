@@ -13,4 +13,4 @@ L’idea di fondo è che, osservando ed estrapolando la distribuzione dei Topic 
 
 2. Passare questo corpus ad LDA, per la quale configurazione impiegheremmo un algoritmo genetico per stabilire dei valori ottimali per gli hyperparameters (Alpha e Beta)  e k (numero di Topic da prendere in considerazione).
 
-3.Si può in seguito, pluggare questi dati nella in una pipeline, al fine da verificare un effettivo aumento della accuratezza del rilevamento del crimine perpetrato su siti appartenenti al dark-web.
+3. Si può in seguito, pluggare questi dati nella in una pipeline, al fine da verificare un effettivo aumento della accuratezza del rilevamento del crimine perpetrato su siti appartenenti al dark-web.
