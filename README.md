@@ -7,7 +7,7 @@
 L’idea di fondo è che, osservando ed estrapolando la distribuzione dei Topic da pagine nel dark-web, queste distribuzioni possano accumunare diversi siti, e, di conseguenza, possano in un qualche modo contribuire ad una predizione più accurata del crimine perpetrato in quel determinato sito, una volta fornito l’output di LDA ad una pipeline di predizione.
 
 
-# Idea principale
+# Pipeline di lavoro
 
 1. Usare un tool di NLP, per effettuare pre-processing del testo estratto da fonti quali: blog, forum, marketplace, in modo tale da avere un corpus uniforme.
 
