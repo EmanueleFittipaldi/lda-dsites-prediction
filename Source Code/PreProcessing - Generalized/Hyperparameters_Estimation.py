@@ -49,9 +49,9 @@ def CalculateCoherence(X):
     return coherence_lda
 
 # Passes da 1 a 99, num_topics da 2 a 99
-varbound=np.array([[1,100],[2,100]])
-algorithm_param = {'max_num_iteration': 5,\
-                   'population_size':5,\
+varbound=np.array([[1,100],[2,30]])
+algorithm_param = {'max_num_iteration': 10,\
+                   'population_size':10,\
                    'mutation_probability':0.1,\
                    'elit_ratio': 0.01,\
                    'crossover_probability': 0.5,\
