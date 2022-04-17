@@ -20,18 +20,18 @@ import numpy as np
 from geneticalgorithm import geneticalgorithm as ga
 
 #IMPORTING THE FUNCTIONS NEEDED TO PRE-PROCESS THE TEXT
-from functions import getRatingsPaths
-from functions import extractText
-from functions import splitAndLower
-from functions import TokenizingCorpus
-from functions import delUnder4Words
-from functions import noPuncNoNumb
-from functions import errataCorrige
-from functions import expandContractions
-from functions import deContract
-from functions import singAndLemm
-from functions import lemmatize
-from functions import reStopWords
+# from functions import getRatingsPaths
+# from functions import extractText
+# from functions import splitAndLower
+# from functions import TokenizingCorpus
+# from functions import delUnder4Words
+# from functions import noPuncNoNumb
+# from functions import errataCorrige
+# from functions import expandContractions
+# from functions import deContract
+# from functions import singAndLemm
+# from functions import lemmatize
+# from functions import reStopWords
 
 
 #------------------------------------------ FASE 0 - APERTURA DEL CORPORA PREPROCESSATO E SERIALIZZATO -----------------------------------
@@ -46,6 +46,7 @@ Corpora = [x for x in LISTA_CORPUS_PREPROCESSATI if x]
 print("Corpora su cui applicherò il Bag of words")
 print(Corpora)
 print("\n")
+
 
 #------------------------------------------ FASE 1 - CREAZIONE DEL DIZIONARIO ------------------------------------------------------------
 
@@ -63,15 +64,17 @@ for k, v in dictionary.iteritems():
 #il più possibile
 dictionary.filter_extremes(no_below=15,no_above=0.5,keep_n=600)
 
+
 #------------------------------------------ FASE 2 - RAPPRESENTAZIONE BoW ---------------------------------------------------------------
 
 # Converto ogni documento nella sua rappresentazione Bag of Words sfruttando il dizionario creato in precedenza
 bow_corpus = [dictionary.doc2bow(doc) for doc in Corpora]
 
+
 #------------------------------------------ FASE 3 - TRAINING DI LDA  -------------------------------------------------------------------
 
 # Alleno il modello LDA
-lda = LdaModel(bow_corpus,id2word=dictionary,passes=56, num_topics=8)
+lda = LdaModel(bow_corpus,id2word=dictionary,passes=92, num_topics=28)
 
 # Printo i topic con le rispettive parole più significative appartenenti per ogni topic
 for idx, topic in lda.print_topics(-1):

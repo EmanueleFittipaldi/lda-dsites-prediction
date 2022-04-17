@@ -1,14 +1,6 @@
 import os
 import re
 
-import gensim
-from gensim.corpora.textcorpus import remove_stopwords
-from gensim.parsing import strip_punctuation, strip_numeric
-from textblob import TextBlob
-
-from preProcessing_Pipeline import txToList
-
-
 def getRatingsPaths(DatasetFolder):
     # Prendo tutti i percorsi inerenti alle cartelle chiamate vendor
     Vendors_folders = []
