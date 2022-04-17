@@ -1,7 +1,13 @@
 # lda-dsites-prediction
 
-
-
-# Main Idea
+# Abstract
 
 Le attività illecite hanno trovato terreno fertile nell’anonimato garantito dal Deep/Dark- Web. E’ nata l’esigenza di riuscire a riconoscere e dunque a profilare i siti web dove si perpetrano attività illecite. Una possibile idea è quella di adottare delle tecniche di intelligenza artificiale per riuscire a fare ciò. L’obiettivo che si vuole raggiungere con questa tesi è quello di riuscire ad effettuare una predizione accurata dell’attività perpetrata su un determinato sito appartenente al Deep/Dark-web a partire dal solo testo che vi è ivi presente, adottando tecniche di Topic Modelling come LDA e attraverso l’ottimizzazione degli iperparametri mediante l’adozione di algoritmi genetici. Per riuscire a fornire ad LDA una base testuale di partenza qualitativamente più alta possibile, è stata creata una opportuna pipeline di lavoro dedita al preprocessing e all’estrazione del testo, cercando di abbracciare il problema nella forma più generale possibile aumentando la ripetibilità dell’esperimento.
+
+# MARK-V
+MARK-V costituisce il tentativo di creare una nuova pipeline di lavoro per riuscire nel problema della classificazione dei siti appartenenti al Dark/Deep-Web. Il numero dei siti risiedenti in questo sub-strato oscuro della rete è infatti in rapida espansione. Per questo motivo, cercare di contrastare questa crescita è diventata una sfida ancora aperta per la ricerca. L’approccio avanzato da MARK-V si articola su 4 punti:
+1. Estrazione e Pre-processing del testo
+2. Tuning degli Iper-parametri di LDA
+3. Training di LDA
+4. Conversione in problema di classificazione multiclasse
+Nella fase 1. si punta, attraverso uno scraper costruito appositamente, di estrapolare il testo dai dump presenti nel dataset ANITA e successivamente a preprocessare il testo rimuovendo tutto ciò che non è essenziale. Verranno rimossi segni di punteggiatura, numeri, ogni verbo verrà portato alla sua forma base, ogni parola al plurale verrà portata al singolare etc... Successivamente, una volta che si dispone del corpus, nel punto 2. Troviamo quali sono i parametri sub-ottimali per allenare LDA. I parametri sub-ottimali vengono trovati grazie all’uso di un algoritmo genetico i quali considera ogni configurazione come un individuo di una popolazione che evolve fino ad un certo punto, restituendo così, una volta raggiunto il criterio di stopping condition la configurazione che ha dato prova di essere la migliore. trovata la configurazione più congeniale alleniamo nel punto 3. LDA sul corpus. Infine, nel punto 4. Una volta ottenuto il modello allenato e il corpus preprocessato, sfrutto LDA per esprimere ogni documento sottoforma di vettori n-dimensionali. Ogni componente di un vettore, rappresenta la probabilità che quel documento possa essere classificato sotto un certo Topic. Quello che viene fatto è sostanzialmente feature engineering al fine da poter ricavare delle feature da poter accoppiare a delle label per poter fare inferenza tramite un algoritmo di classificazione multi-classe, come può essere una regressione logistica, random forest o come nel mio caso un albero decisionale.
